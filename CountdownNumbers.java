@@ -20,6 +20,7 @@ public class CountdownNumbers {
 			String largeOrSmall = "";
 			while (true)
 			{
+				//Number of larges and number of smalls so you don't have to type in like 5 smalls
 				System.out.println("Large or small number?");
 				largeOrSmall = k.nextLine();
 				largeOrSmall = largeOrSmall.toLowerCase();

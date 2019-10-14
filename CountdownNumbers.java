@@ -15,27 +15,40 @@ public class CountdownNumbers {
 		
 		List<Integer> nums = new ArrayList<Integer>();
 		
-		for (int i = 0; i < 6; i++)
+		int numLarge = -1;
+		int numSmall = -1;
+		while (true)
 		{
-			String largeOrSmall = "";
-			while (true)
-			{
-				//Number of larges and number of smalls so you don't have to type in like 5 smalls
-				System.out.println("Large or small number?");
-				largeOrSmall = k.nextLine();
-				largeOrSmall = largeOrSmall.toLowerCase();
-				if (largeOrSmall.equals("large") || largeOrSmall.equals("small"))
-				{
-					break;
-				}
-				else
-				{
-					System.out.println("Invalid. Please try again.");
-				}
+			System.out.println("How many large numbers? (0 to 4)");
+			try {
+				numLarge = k.nextInt();
 			}
-			nums.add(addNumber(largeOrSmall));
-			System.out.println("The number you got is " + nums.get(i) + ".");
+			catch(Exception e)
+			{
+				System.out.println("Input must be a number.");
+			}
+			if (numLarge > -1 && numLarge < 5)
+			{
+				break;
+			}
+			else
+			{
+				System.out.println("Input must be from 0 to 4.");
+			}
 		}
+		numSmall = 6 - numLarge;
+		for (int c = 0; c < numLarge; c++)
+		{
+			nums.add(addNumber("large"));
+			System.out.println("The number you got is " + nums.get(c) + ".");
+		}
+		for (int c = 0; c < numSmall; c++)
+		{
+			nums.add(addNumber("small"));
+			System.out.println("The number you got is " + nums.get(numLarge + c) + ".");
+		}
+		
+		
 		
 		System.out.println();
 		System.out.println("Your numbers are:");
